@@ -38,6 +38,9 @@ public class User {
 	@Size(min = 8, max = 8)
 	@Column(name = "Dni", columnDefinition = "char(8)", nullable = false)
 	private String dni;
-	
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "car_id")
+	private Car car;
 	
 }
