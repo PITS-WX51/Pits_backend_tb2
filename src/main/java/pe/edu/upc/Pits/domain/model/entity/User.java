@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -38,9 +40,12 @@ public class User {
 	@Size(min = 8, max = 8)
 	@Column(name = "Dni", columnDefinition = "char(8)", nullable = false)
 	private String dni;
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull
+	@NotBlank
+	@Column(name = "Car_id", nullable = false)
+	private String car;
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "car_id")
-	private Car car;
+	private List<Car> cars;
 	
 }

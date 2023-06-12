@@ -26,19 +26,19 @@ public class Mechanic {
     @Size(min = 2, max = 30)
     @Column(name = "first_name", length = 30)
     private String firstName;
-
+    
     @NotNull
     @NotBlank
-    @Size(min = 8, max = 8)
+    @Size(min = 8, max = 8, message = "el numero de dni debe tener 8 digitos")
     @Column(name = "dni", columnDefinition = "char(8)", nullable = false)
     private String dni;
-
+    
     @NotNull
     @NotBlank
-    @Size(min = 9, max = 9)
+    @Size(min = 9, max = 9, message = "el numero de dni debe tener 9 digitos")
     @Column(name = "contact_number", columnDefinition = "char(9)", nullable = false)
     private String contactNumber;
-
+    
     @NotNull
     @NotBlank
     @Column(name = "yearsJob", nullable = false)

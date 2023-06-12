@@ -5,9 +5,8 @@ import  pe.edu.upc.Pits.domain.model.entity.Mechanic;
 import java.util.List;
 import java.util.Optional;
 
-
-public interface MechanicService {
-
+public interface MechanicService /*extends CrudService*/{
+    
     List<Mechanic> fetchAll();
     Optional<Mechanic> fetchById(Integer id);
     Mechanic save(Mechanic mechanic);

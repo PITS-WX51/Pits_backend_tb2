@@ -19,34 +19,34 @@ import java.util.List;
 public class MechanicController {
     private final MechanicService mechanicService;
     private final MechanicMapper mapper;
-
+    
     @PostMapping
     public MechanicResource save(@RequestBody CreateMechanicResource resource) {
         return mapper.toResource( mechanicService.save( mapper.toModel(resource) ) );
     }
-
+    
     @GetMapping
     public List<Mechanic> fetchAll() {
         return mechanicService.fetchAll();
     }
-
+    
     @GetMapping("{id}")
     public MechanicResource fetchId(@PathVariable Integer id) {
         return this.mapper.toResource(mechanicService.fetchById(id).get());
     }
-
+    
     @PutMapping("{id}")
     public ResponseEntity<MechanicResource> update(@PathVariable Integer id,
                                                    @RequestBody UpdateMechanicResource resource) {
         if (id.equals(resource.getId())) {
             MechanicResource mechanicResource = mapper.toResource(
-                    mechanicService.update( mapper.toModel(resource) ) );
+              mechanicService.update( mapper.toModel(resource) ) );
             return new ResponseEntity<>(mechanicResource, HttpStatus.OK);
         } else {
             return ResponseEntity.badRequest().build();
         }
     }
-
+    
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         if (mechanicService.deleteById(id)) {
@@ -55,6 +55,6 @@ public class MechanicController {
             return ResponseEntity.notFound().build();
         }
     }
-
-
+    
+    
 }

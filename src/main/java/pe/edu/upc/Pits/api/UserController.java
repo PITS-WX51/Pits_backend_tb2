@@ -37,10 +37,10 @@ public class UserController {
 	
 	@PutMapping("{id}")
 	public ResponseEntity<UserResource> update(@PathVariable Integer id,
-																								@RequestBody UpdateUserResource resource) {
+																						 @RequestBody UpdateUserResource resource) {
 		if (id.equals(resource.getId())) {
 			UserResource userResource = mapper.toResource(
-					userService.update( mapper.toModel(resource) ) );
+				userService.update( mapper.toModel(resource) ) );
 			return new ResponseEntity<>(userResource, HttpStatus.OK);
 		} else {
 			return ResponseEntity.badRequest().build();

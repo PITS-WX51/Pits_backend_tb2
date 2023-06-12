@@ -11,11 +11,11 @@ import java.util.Optional;
 
 @Repository
 public interface MechanicRepository extends JpaRepository<Mechanic, Integer> {
-
+    
     Optional<Mechanic> findBydni(String dni);
-
+    
     List<Mechanic> findByLastNameStartingWith(String lastName);
-
+    
     @Query("SELECT mech FROM Mechanic mech WHERE mech.dni = :dni or mech.lastName = :lastName")
     List<Mechanic> fetchByDniOrlastName(@Param("dni")String dni,@Param("lastName")String lastName);
 }

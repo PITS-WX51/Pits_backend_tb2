@@ -11,9 +11,9 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-Optional<User> findBydni(String dni);
-List<User> findBylastnameStartingWith(String lastname);
-
-@Query("SELECT user FROM User user WHERE user.dni = :dni or user.lastname = :lastname")
+	Optional<User> findBydni(String dni);
+	List<User> findBylastnameStartingWith(String lastname);
+	
+	@Query("SELECT user FROM User user WHERE user.dni = :dni or user.lastname = :lastname")
 	List<User> fetchBydniOrlastname(@Param("dni") String dni, @Param("lastname") String lastname);
 }
