@@ -1,4 +1,4 @@
-package pe.edu.upc.Pits.service;
+package pe.edu.upc.Pits.service.impl;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
